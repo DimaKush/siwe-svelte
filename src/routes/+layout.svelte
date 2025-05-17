@@ -1,6 +1,5 @@
 <script lang="ts">
 	import '../app.css';
-	import LanguageSwitcher from '$lib/components/LanguageSwitcher.svelte';
 	import WalletConnector from '$lib/components/WalletConnector.svelte';
 </script>
 
@@ -9,7 +8,6 @@
 		<div class="header-container">
 			<div class="logo">SIWE Message Signer</div>
 			<div class="header-right">
-				<LanguageSwitcher />
 				<div class="wallet-wrapper">
 					<WalletConnector />
 				</div>

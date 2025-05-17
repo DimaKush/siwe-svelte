@@ -2,11 +2,9 @@
   import { signMessage, getMessageHash, validateSiweMessageFormat, parseSiweMessage, 
     isValidEthereumAddress, isValidChainId, isValidURI, isValidISODate, isWalletConnected, connectWallet } from '../wallet';
   import { t } from '../i18n';
-  import { onMount } from 'svelte';
   import type { SiweMessage } from 'siwe';
   import { currentLang } from '../stores/language';
   
-  // Sample SIWE message to use as placeholder
   const sampleMessage = `localhost wants you to sign in with your Ethereum account:
 0x0000000000000000000000000000000000000000
 
@@ -150,7 +148,7 @@ Issued At: 2022-01-28T23:28:16.013Z`;
       id="message" 
       bind:value={message} 
       placeholder={sampleMessage}
-      rows="10"
+      rows="13"
     ></textarea>
     
     {#if !isValidFormat && message.trim()}
@@ -213,6 +211,7 @@ Issued At: 2022-01-28T23:28:16.013Z`;
   
   .input-group {
     margin-bottom: 1rem;
+    margin-right: 1rem;
   }
   
   label {

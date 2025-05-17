@@ -36,6 +36,9 @@ export const messages: Messages = {
       connect: 'Connect Wallet',
       connecting: 'Connecting...',
       connected: 'Connected'
+    },
+    description: {
+      main: 'Connect your Ethereum wallet, paste a Sign-In with Ethereum message, sign it, and get the hash.'
     }
   },
   ru: {
@@ -67,6 +70,9 @@ export const messages: Messages = {
       connect: 'Подключить кошелек',
       connecting: 'Подключаем...',
       connected: 'Подключен'
+    },
+    description: {
+      main: 'Подключите ваш Ethereum кошелек, вставьте Sign-In with Ethereum сообщение, подпишите его и получите хеш.'
     }
   },
   zh: {
@@ -98,6 +104,9 @@ export const messages: Messages = {
       connect: '连接钱包',
       connecting: '连接中...',
       connected: '已连接'
+    },
+    description: {
+      main: '连接您的以太坊钱包，粘贴以太坊登录消息，签名并获取哈希值。'
     }
   }
 };

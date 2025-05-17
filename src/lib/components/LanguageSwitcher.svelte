@@ -1,57 +1,48 @@
 <script lang="ts">
   import { currentLang, toggleLanguage } from '../stores/language';
   
-  // Флаги для языков (можно заменить на иконки или другие символы)
-  const flags: { [key: string]: string } = {
-    ru: 'Русский',
-    en: 'English',
-    zh: '中文'
-  };
-  
-  // Function to get next language label
-  function getNextLanguage(current: string): string {
-    if (current === 'en') return 'Русский';
-    if (current === 'ru') return '中文';
-    return 'English';
-  }
+  const languages = [
+    { code: 'en', label: 'English' },
+    { code: 'ru', label: 'Русский' },
+    { code: 'zh', label: '中文' }
+  ];
 </script>
 
 <div class="language-switcher">
-  <button on:click={toggleLanguage}>
-    <span class="current-flag">{flags[$currentLang]}</span>
-    <span class="switch-text">{getNextLanguage($currentLang)}</span>
-  </button>
+  {#each languages as lang}
+    <button 
+      class:active={$currentLang === lang.code}
+      on:click={() => currentLang.set(lang.code)}
+    >
+      {lang.label}
+    </button>
+  {/each}
 </div>
 
 <style>
   .language-switcher {
     display: flex;
-    justify-content: flex-end;
-    margin: 1rem;
+    align-items: center;
+    gap: 0.5rem;
   }
   
   button {
-    display: flex;
-    align-items: center;
-    padding: 0.5rem 1rem;
-    background: #f0f0f0;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    padding: 0;
+    background: none;
+    border: none;
     cursor: pointer;
-    font-size: 0.9rem;
-    transition: background-color 0.2s;
+    font-size: inherit;
+    color: inherit;
+    transition: opacity 0.2s;
+    opacity: 0.6;
   }
   
   button:hover {
-    background: #e0e0e0;
+    opacity: 0.8;
   }
-  
-  .current-flag {
-    margin-right: 0.5rem;
-    font-size: 1.2rem;
-  }
-  
-  .switch-text {
+
+  button.active {
+    opacity: 1;
     font-weight: 500;
   }
 </style> 
